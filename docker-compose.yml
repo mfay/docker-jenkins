@@ -1,0 +1,16 @@
+version: '2'
+services:
+  jenkins:
+    image: jenkinsci/jenkins:2.6
+    ports:
+      - "80:8080"
+  slave:
+    build: ./slave
+    links:
+      - jenkins
+    depends_on:
+      - jenkins
+    environment:
+      - MASTER_URL=jenkins
+      - SLAVE_USERNAME=slave
+      - SLAVE_PASSWORD=slave1
