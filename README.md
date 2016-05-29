@@ -16,14 +16,18 @@ docker exec -it ${PWD##*/}_jenkins_1 cat /var/jenkins_home/secrets/initialAdminP
 
 ## Add user and roles
 1. Manage Jenkins > Manage Users > Create User
+
    Fill in all the required fields.  Remember the username/password as it will need to match the settings in the docker-compose.yml file.
 
 2. Manage Jenkins > Configure Global Security
+
    Check "Role-Based Security" and click Save
 
 3. Manage Jenkins > Manage and Assign Roles
+
    Click Manage Roles and add a new role to the Global roles section called 'autoslave' (or whatever name you wish).
    Check the 'Read' option under Overall and everything under Agent.
 
 4. Manage Jenkins > Mange and Assign Roles
+
    Click Assign Roles and add the user from step 1 to the Global roles and check the checkbox in the autoslave column.
